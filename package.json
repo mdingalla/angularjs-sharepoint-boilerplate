@@ -1,0 +1,27 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jasmine": "^2.4.0",
+    "gulp-minify": "0.0.12",
+    "gulp-spsave": "^2.0.1",
+    "map-stream": "0.0.6",
+    "spsave": "^2.1.2",
+    "vinyl-fs": "^2.4.3"
+  },
+  "dependencies": {
+    "angular-chart.js": "^1.0.2",
+    "chart.js": "^2.2.1",
+    "lodash": "^4.15.0",
+    "ng-office-ui-fabric": "^0.12.3"
+  }
+}
