@@ -1,7 +1,5 @@
-<%@ Reference VirtualPath="~masterurl/custom.master" %>
-<%@ Page language="C#" masterpagefile="~/_catalogs/masterpage/seattle.master"   Inherits="Microsoft.SharePoint.Publishing.PublishingLayoutPage,Microsoft.SharePoint.Publishing,Version=15.0.0.0,Culture=neutral,PublicKeyToken=71e9bce111e9429c" meta:progid="SharePoint.WebPartPage.Document" %>
-<%@ Register Tagprefix="SharePointWebControls" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Register Tagprefix="PublishingWebControls" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Register Tagprefix="PublishingNavigation" Namespace="Microsoft.SharePoint.Publishing.Navigation" Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Page language="C#"   Inherits="Microsoft.SharePoint.Publishing.PublishingLayoutPage,Microsoft.SharePoint.Publishing,Version=15.0.0.0,Culture=neutral,PublicKeyToken=71e9bce111e9429c" meta:webpartpageexpansion="full" meta:progid="SharePoint.WebPartPage.Document" %>
+<%@ Register Tagprefix="SharePointWebControls" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Register Tagprefix="PublishingWebControls" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Register Tagprefix="PublishingNavigation" Namespace="Microsoft.SharePoint.Publishing.Navigation" Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <asp:Content ContentPlaceholderID="PlaceHolderAdditionalPageHead" runat="server">
 	<SharePointWebControls:CssRegistration name="<% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/pagelayouts15.css %>" runat="server"/>
 	<PublishingWebControls:EditModePanel runat="server">
@@ -14,7 +12,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/googlefont.css%>"/>">
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/bootstrap/bootstrap.min.css%>" />">
-	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/bootstrap/bootstrap-theme.css%>" />">
+	<!-- <link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/bootstrap/bootstrap-theme.css%>" />"> -->
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/fontawesome/css/font-awesome.min.css%>" />">
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/angularjs-toaster/toaster.min.css%>" />">
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/chosen/chosen.min.css%>" />">
@@ -26,7 +24,7 @@
 	</style>
 </asp:Content>
 <asp:Content ContentPlaceholderID="PlaceHolderPageTitle" runat="server">
-	Vendor Registration
+	AngularJS - SharePoint
 	<SharePointWebControls:FieldValue id="PageTitle" FieldName="Title" runat="server"/>
 </asp:Content>
 
@@ -38,7 +36,7 @@
 </div>
 </asp:Content>
 <asp:Content ContentPlaceholderID="PlaceHolderPageTitleInTitleArea" runat="server">
-<span><a href="../">Vendor Request</a></span>
+<span><a href="../">AngularJS + SharePoint</a></span>
 	<SharePointWebControls:FieldValue FieldName="Title" runat="server"/>
 </asp:Content>
 <asp:Content ContentPlaceHolderId="PlaceHolderTitleBreadcrumb" runat="server">
@@ -69,7 +67,7 @@
 <!--
 -->
 <!-- <script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/scripts/jquery-1.12.3.min.js%>" />"></script> -->
-<script type="text/javascript" src="/SiteAssets/lib/core-js/client/shim.min.js"></script>
+<!-- <script type="text/javascript" src="/SiteAssets/lib/core-js/client/shim.min.js"></script>
 <script type="text/javascript" src="/SiteAssets/scripts/spservices/jquery.SPServices-2014.02.js"></script>
 <script type="text/javascript" src="/SiteAssets/scripts/angular.min.js"></script>
 <script type="text/javascript" src="/SiteAssets/scripts/angular-animate.js"></script>
@@ -93,21 +91,21 @@
 <script type="text/javascript" src="/SiteAssets/lib/chosen/chosen-jquery.js"></script>
 <script type="text/javascript" src="/SiteAssets/lib/chosen/angular-chosen2.min.js"></script>
 <script type="text/javascript" src="/SiteAssets/lib/sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/sweetalert/angular-sweetalert.min.js"></script>
+<script type="text/javascript" src="/SiteAssets/lib/sweetalert/angular-sweetalert.min.js"></script> -->
 <!-- <script type="text/javascript" src="/SiteAssets/lib/bootstrap-material-design/js/material.min.js%>" />"></script>
 <script type="text/javascript" src="/SiteAssets/lib/bootstrap-material-design/js/ripples.min.js%>" />"></script> -->
-<script type="text/javascript" src="/SiteAssets/lib/es6-promise/es6-promise.min.js"></script>
+<!-- <script type="text/javascript" src="/SiteAssets/lib/es6-promise/es6-promise.min.js"></script>
 <script type="text/javascript" src="/SiteAssets/lib/whatwg-fetch/fetch.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/sp-pnp-js/dist/pnp.min.js"></script>
+<script type="text/javascript" src="/SiteAssets/lib/sp-pnp-js/dist/pnp.min.js"></script> -->
 
 
-<script type="text/javascript" src="/SiteAssets/app/app.js"></script>
+<!-- <script type="text/javascript" src="/SiteAssets/app/app.js"></script> -->
 
 
 <!-- Optional theme -->
 <div  ng-app="myApp">
 <toaster-container></toaster-container>
-<back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top>
+<!-- <back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top> -->
 <div class="view-animate-container">
 	 <div ng-view class="view-animate"></div>
  </div>
@@ -168,10 +166,10 @@
 		<div class="animated-container">
 			<div class="messaging">
 				<h1>
-					Vendor Registration
+					AngularJS + SharePoint App
 				</h1>
 				<p>
-					Working on it...
+					Loading...
 				</p>
 			</div>
 		</div>
@@ -198,9 +196,6 @@
 
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/jquery-1.12.3.min.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/moment.js%>" />"></script>
-			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/checklist-model.js%>" />"></script>
-			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/config.peoplepicker.js%>" />"></script>
-			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/ui-bootstrap-tpls-1.3.3.min.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/lodash.min.js%>" />"></script>
 
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/angular/angular.min.js%>" />"></script>
@@ -216,8 +211,12 @@
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/ng-file-upload/ng-file-upload-shim.min.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/ng-file-upload/ng-file-upload-all.min.js%>" />"></script>
 
+			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/checklist-model.js%>" />"></script>
+			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/config.peoplepicker.js%>" />"></script>
+			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/ui-bootstrap-tpls-1.3.3.min.js%>" />"></script>
+
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/ng-office-ui-fabric/ngOfficeUiFabric.min.js%>" />"></script>
-			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/angular-smart-table/smart-table.min.js%>" />"></script>
+			<!-- <script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/angular-smart-table/smart-table.min.js%>" />"></script> -->
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/chartjs/Chart.min.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/angular-chart/angular-chart.min.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/chosen/chosen-jquery.js%>" />"></script>
@@ -232,8 +231,8 @@
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/sp-pnp-js/dist/pnp.min.js%>"  />"></script>
 
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/app.js%>" />"></script>
-			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/controllers.js%>" />"></script>
-			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/services.js%>" />"></script>
+			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/controller.js%>" />"></script>
+			<!-- <script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/services.js%>" />"></script> -->
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/directives.js%>" />"></script>
 
 </asp:Content>
