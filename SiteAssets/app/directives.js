@@ -11,29 +11,22 @@
           return({
            link: link,
            restrict: "C"
-            //  templateUrl:_spPageContextInfo.webAbsoluteUrl + '/SiteAssets/app/templates/splash.html',
+
           });
-
-
             // I bind the JavaScript events to the scope.
           function link( scope, element, attributes )
           {
             $animate.leave( element.children().eq( 1 ) ).then(
                function cleanupAfterAnimation() {
-
                  // Remove the root directive element.
                  element.remove();
-
                  // Clear the closed-over variable references.
                  scope = element = attributes = null;
 
                });
-
           }
 
         }
-
-
 
         myApp.directive('backTop',backTop);
         backTop.$inject = [];
@@ -136,6 +129,5 @@
               }
          }
         }
-
 
  })();

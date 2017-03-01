@@ -8,5 +8,4 @@
       vm.Message = 'Welcome to AngularJS in SharePoint';
     }
 
-
 })();

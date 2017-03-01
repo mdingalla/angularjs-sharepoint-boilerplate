@@ -17,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/angularjs-toaster/toaster.min.css%>" />">
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/chosen/chosen.min.css%>" />">
 	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/lib/sweetalert/sweetalert.css%>" />">
+	<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/app/css/app.css%>" />">
 	<style>
 	#pageTitle {
 	 margin: 0 !important;
@@ -64,48 +65,11 @@
 <script src="/_layouts/15/clientpeoplepicker.js"></script>
 <script src="/_layouts/15/autofill.js"></script>
 <script src="/_layouts/15/sp.RequestExecutor.js"></script>
-<!--
--->
-<!-- <script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~sitecollection/SiteAssets/scripts/jquery-1.12.3.min.js%>" />"></script> -->
-<!-- <script type="text/javascript" src="/SiteAssets/lib/core-js/client/shim.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/spservices/jquery.SPServices-2014.02.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angular.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angular-animate.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angular-resource.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angular-route.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/ng-file-upload/ng-file-upload-all.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angular-filter.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/moment.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/checklist-model.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/config.peoplepicker.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/scripts/angularjs-toaster/toaster.min.js"></script>
-
-<script type="text/javascript" src="/SiteAssets/lib/lodash/lodash.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/ng-office-ui-fabric/ngOfficeUiFabric.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/angular-smart-table/smart-table.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/chartjs/Chart.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/angular-chart/angular-chart.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/chosen/chosen-jquery.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/chosen/angular-chosen2.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/sweetalert/angular-sweetalert.min.js"></script> -->
-<!-- <script type="text/javascript" src="/SiteAssets/lib/bootstrap-material-design/js/material.min.js%>" />"></script>
-<script type="text/javascript" src="/SiteAssets/lib/bootstrap-material-design/js/ripples.min.js%>" />"></script> -->
-<!-- <script type="text/javascript" src="/SiteAssets/lib/es6-promise/es6-promise.min.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/whatwg-fetch/fetch.js"></script>
-<script type="text/javascript" src="/SiteAssets/lib/sp-pnp-js/dist/pnp.min.js"></script> -->
 
 
-<!-- <script type="text/javascript" src="/SiteAssets/app/app.js"></script> -->
-
-
-<!-- Optional theme -->
 <div  ng-app="myApp">
 <toaster-container></toaster-container>
-<!-- <back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top> -->
+<back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top>
 <div class="view-animate-container">
 	 <div ng-view class="view-animate"></div>
  </div>

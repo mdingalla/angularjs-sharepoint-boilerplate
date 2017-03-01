@@ -1,7 +1,4 @@
-fieldset {
-    /* to set absolute position for :after content */
-    /*position: relative;*/
-}
+
 fieldset[disabled] input {
     /* to set absolute position for :after content */
     position: relative;

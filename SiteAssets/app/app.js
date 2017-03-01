@@ -1,5 +1,4 @@
 (function() {
-
     'use strict';
     var myApp = angular.module('myApp', ['ngAnimate','ngRoute',
       'ui.bootstrap','ngResource','ui.People','ngFileUpload','angular.filter',

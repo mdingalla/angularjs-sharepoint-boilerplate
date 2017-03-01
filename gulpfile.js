@@ -218,6 +218,7 @@ gulp.task('watch',function()
 
   gulp.watch([
     "SiteAssets/app/pages/*.html",
+    "SiteAssets/app/css/*.css",
     "SiteAssets/app/app.js",
     "SiteAssets/app/controller.js",
     "SiteAssets/app/directives.js"
