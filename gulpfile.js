@@ -6,8 +6,8 @@ var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 
 
-var spusername = 'sptestmgr';
-var sppassword = 'P@ssw0rd';
+var spusername = '';
+var sppassword = '';
 var spSiteColUrl = 'http://iconnect.interplex.com/dev';
 var spSiteUrl = 'http://iconnect.interplex.com/dev/angular1';
 var spDevSiteUrl = 'http://iconnect.interplex.com/dev/angular1';
