@@ -1,0 +1,7 @@
+{
+  "username":"user",
+  "password":"password",
+  "devSite":"http://example.com/dev/angular1",
+  "prodSite":"http://example.com/dev/angular1",
+  "rootSite":"http://example.com/dev"
+}

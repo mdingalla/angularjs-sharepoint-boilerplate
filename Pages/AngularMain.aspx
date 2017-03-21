@@ -20,9 +20,7 @@
 <asp:Content ContentPlaceholderID="PlaceHolderPageTitle" runat="server">
 	AngularJS - SharePoint
 	<SharePointWebControls:FieldValue id="PageTitle" FieldName="Title" runat="server"/>
-
 </asp:Content>
-
 
 <asp:Content ContentPlaceholderID="PlaceHolderSearchArea" runat="server">
 <div id="dashSearchBox">
@@ -60,81 +58,10 @@
 <script src="/_layouts/15/autofill.js"></script>
 <script src="/_layouts/15/sp.RequestExecutor.js"></script>
 
-
 <div  ng-app="myApp" lang="eng">
-<!-- <toaster-container></toaster-container> -->
-<!-- <back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top> -->
 <div class="view-animate-container">
-	 <!-- <div ui-view class="view-animate"></div> -->
 	 <ui-view></ui-view>
  </div>
-	<!-- <div class="m-app-loading" ng-animate-children>
-		<style type="text/css">
-			div.m-app-loading {
-				position: fixed ;
-			}
-
-			div.m-app-loading div.animated-container {
-				background-color: #333333 ;
-				bottom: 0px ;
-				left: 0px ;
-				opacity: 1.0 ;
-				position: fixed ;
-				right: 0px ;
-				top: 0px ;
-				z-index: 999999 ;
-			}
-
-			/* Used to initialize the ng-leave animation state. */
-			div.m-app-loading div.animated-container.ng-leave {
-				opacity: 1.0 ;
-				transition: all linear 200ms ;
-					-webkit-transition: all linear 200ms ;
-			}
-
-			/* Used to set the end properties of the ng-leave animation state. */
-			div.m-app-loading div.animated-container.ng-leave-active {
-				opacity: 0 ;
-			}
-
-			div.m-app-loading div.messaging {
-				color: #FFFFFF ;
-				font-family: monospace ;
-				left: 0px ;
-				margin-top: -37px ;
-				position: absolute ;
-				right: 0px ;
-				text-align: center ;
-				top: 50% ;
-			}
-
-			div.m-app-loading h1 {
-				font-size: 26px ;
-				line-height: 35px ;
-				margin: 0px 0px 20px 0px ;
-			}
-
-			div.m-app-loading p {
-				font-size: 18px ;
-				line-height: 14px ;
-				margin: 0px 0px 0px 0px ;
-			}
-
-		</style>
-
-		<div class="animated-container">
-			<div class="messaging">
-				<h1>
-					AngularJS + SharePoint App
-				</h1>
-				<p>
-					Loading...
-				</p>
-			</div>
-		</div>
-
-	</div> -->
-
 	    <style type="text/css">
 	    .form-invalid
 	    {
@@ -154,6 +81,5 @@
 			</script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/scripts/vendor.bundle.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/scripts/main.bundle.js%>" />"></script>
-
 
 </asp:Content>
