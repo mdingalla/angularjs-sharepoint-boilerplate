@@ -17,8 +17,10 @@ module.exports = function makeWebpackConfig() {
   };
 
   config.output = {
-      path: './dist',
-      filename: 'bundle.js'
+       path: './dist',
+      // filename: 'bundle.js'
+  //  path: __dirname,
+    filename: "/scripts/[name].bundle.js"
   };
 
   // Initialize module
@@ -93,10 +95,16 @@ module.exports = function makeWebpackConfig() {
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
       new webpack.optimize.UglifyJsPlugin(),
+      // new UglifyJsPlugin({
+      //       beautify: false,
+      //       mangle: { screw_ie8 : true },
+      //       compress: { screw_ie8: true, warnings: false },
+      //       comments: false
+      //   }),
 
       new CommonsChunkPlugin({
             name: "vendor",
-            filename: "vendor.bundle.js"
+            filename: "/scripts/vendor.bundle.js"
         })
 
       // Copy assets from the public folder
