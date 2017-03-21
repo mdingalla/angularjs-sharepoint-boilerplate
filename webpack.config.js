@@ -94,7 +94,7 @@ module.exports = function makeWebpackConfig() {
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
-      new webpack.optimize.UglifyJsPlugin(),
+    //  new webpack.optimize.UglifyJsPlugin(),
       // new UglifyJsPlugin({
       //       beautify: false,
       //       mangle: { screw_ie8 : true },

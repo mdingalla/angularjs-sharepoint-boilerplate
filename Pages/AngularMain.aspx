@@ -8,7 +8,9 @@
 			After="<% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/pagelayouts15.css %>" runat="server"/>
 	</PublishingWebControls:EditModePanel>
 	<SharePointWebControls:FieldValue id="PageStylesField" FieldName="HeaderStyleDefinitions" runat="server"/>
-
+	<base href="/dev/angular1/Pages/AngularMain.aspx/	">
+	<!-- <base href="/dev/angular1/"> -->
+<link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/css/main.css%>"/>">
 	<style>
 	#pageTitle {
 	 margin: 0 !important;
@@ -18,6 +20,7 @@
 <asp:Content ContentPlaceholderID="PlaceHolderPageTitle" runat="server">
 	AngularJS - SharePoint
 	<SharePointWebControls:FieldValue id="PageTitle" FieldName="Title" runat="server"/>
+
 </asp:Content>
 
 
@@ -58,13 +61,14 @@
 <script src="/_layouts/15/sp.RequestExecutor.js"></script>
 
 
-<div  ng-app="myApp">
-<toaster-container></toaster-container>
-<back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top>
+<div  ng-app="myApp" lang="eng">
+<!-- <toaster-container></toaster-container> -->
+<!-- <back-top scroll-speed=600 button-theme="light" button-text="Take me back"></back-top> -->
 <div class="view-animate-container">
-	 <div ng-view class="view-animate"></div>
+	 <!-- <div ui-view class="view-animate"></div> -->
+	 <ui-view></ui-view>
  </div>
-	<div class="m-app-loading" ng-animate-children>
+	<!-- <div class="m-app-loading" ng-animate-children>
 		<style type="text/css">
 			div.m-app-loading {
 				position: fixed ;
@@ -117,7 +121,7 @@
 			}
 
 		</style>
-		<!-- BEGIN: Actual animated container. -->
+
 		<div class="animated-container">
 			<div class="messaging">
 				<h1>
@@ -128,8 +132,8 @@
 				</p>
 			</div>
 		</div>
-		<!-- END: Actual animated container. -->
-	</div>
+
+	</div> -->
 
 	    <style type="text/css">
 	    .form-invalid
@@ -148,7 +152,8 @@
 				// })
 
 			</script>
-
+			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/scripts/vendor.bundle.js%>" />"></script>
+			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/scripts/main.bundle.js%>" />"></script>
 
 
 </asp:Content>
