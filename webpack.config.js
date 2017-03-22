@@ -12,7 +12,7 @@ module.exports = function makeWebpackConfig() {
   var config = {};
 
   config.entry = {
-    vendor: ['babel-polyfill', 'lodash'],
+    vendor: ['babel-polyfill','whatwg-fetch', 'lodash'],
     main: './src/main.js'
   };
 
@@ -25,14 +25,25 @@ module.exports = function makeWebpackConfig() {
 
   // Initialize module
  config.module = {
-   rules: [{
+   rules: [
+    //  {
+    //     "test": /sp-pnp-js.*\.js$/,
+    //     "loader": "babel-loader",
+    //     // "query": {
+    //     //             presets: ['es2015']
+    //     //         }
+    //   },
+      {
      // JS LOADER
      // Reference: https://github.com/babel/babel-loader
      // Transpile .js files using babel-loader
      // Compiles ES6 and ES7 into ES5 code
      test: /\.js$/,
      loader: 'babel-loader',
-     exclude: /node_modules/
+     exclude: /node_modules/,
+    //  "query": {
+    //              presets: ['es2015']
+    //          }
    }, {
      // CSS LOADER
      // Reference: https://github.com/webpack/css-loader
@@ -53,7 +64,8 @@ module.exports = function makeWebpackConfig() {
          {loader: 'postcss-loader'}
        ],
      })
-   }, {
+   },
+   {
      // ASSET LOADER
      // Reference: https://github.com/webpack/file-loader
      // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
@@ -101,6 +113,11 @@ module.exports = function makeWebpackConfig() {
       //       compress: { screw_ie8: true, warnings: false },
       //       comments: false
       //   }),
+      new webpack.ProvidePlugin({
+            'Promise': 'es6-promise', // Thanks Aaron (https://gist.github.com/Couto/b29676dd1ab8714a818f#gistcomment-1584602)
+             'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+          //  'fetch': 'exports?self.fetch!whatwg-fetch'
+        }),
 
       new CommonsChunkPlugin({
             name: "vendor",

@@ -1,0 +1,25 @@
+<div class="row">
+  <h4>Sample</h4>
+
+  <div class="well col-md-4 col-md-push-3">
+     <table class="table table-condensed">
+       <thead>
+         <tr>
+           <th>Department</th>
+           <th></th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat="item in sample.items">
+           <td>{{item.Title}}</td>
+           <td>
+             <button type="button" class="btn-success" ng-click="sample.openModal(item)">Edit</button>
+              <button type="button" class="btn-danger" ng-click="sample.deleteItem(item.Id)">Delete</button>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+
+     <button type="button" class="btn btn-primary" ng-click="sample.openModal(null)">Add</button>
+  </div>
+</div>

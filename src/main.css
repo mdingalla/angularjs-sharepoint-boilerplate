@@ -1,0 +1,121 @@
+fieldset {
+    /* to set absolute position for :after content */
+    /*position: relative;*/
+}
+fieldset[disabled] input {
+    /* to set absolute position for :after content */
+    /*position: relative;*/
+}
+/* this will 'screen' all fieldset content from clicks */
+fieldset[disabled]:after {
+  /*background-color: red;
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url( data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);*/
+}
+
+
+#titlerow {
+  display: none;
+
+}
+
+.red-text {
+  color:red;
+}
+
+h4.titlerow {
+  background-color: #0072c6;
+    color: white;
+    padding: 10px;
+}
+
+#sideNavBox{
+  /*display: none;*/
+}
+
+.ms-core-listMenu-verticalBox:nth-child(2) {
+  display: none;
+}
+
+
+
+/*a.btn:visited {
+  color:white;
+}*/
+
+
+.panel-heading
+{
+  padding: 15px;
+}
+.panel-heading .panel-title
+{
+    font-size: 1.8rem;
+}
+
+.box-info {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.box-info .box-desc.bordered {
+    border-right: 2px solid rgba(0,0,0,0.05);
+}
+
+.box-info .box-num {
+    font-size: 38px;
+    line-height: 2em;
+    font-weight: 300;
+    color: rgba(0,0,0,0.6);
+}
+
+#srchVendorBox.form-group
+{
+  margin: 0;
+}
+
+
+#suiteBar *, #s4-ribbonrow *
+{
+    -webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing:content-box;
+}
+
+
+footer.page-footer {
+    margin-top: 0px;
+    background-color: #fff;
+    color: rgba(0,0,0,0.87);
+    box-shadow: 0 -2px 5px 0 rgba(0,0,0,0.08),0 0px 10px 0 rgba(0,0,0,0.05);
+}
+
+footer.page-footer .footer-copyright {
+    background-color: #FCFCFC;
+    border-top: 1px solid #F0F0F0;
+    color: #898989;
+    overflow: hidden;
+height: 50px;
+line-height: 50px;
+}
+
+.st-selected{
+   background-color: #0044cc;
+}
+
+.st-sort-ascent:before {
+    content: '\25B2';
+}
+
+.st-sort-descent:before {
+    content: '\25BC';
+}
+
+li.uib-tab.nav-item.ng-scope.ng-isolate-scope.active {
+    background-color: darkseagreen;
+}

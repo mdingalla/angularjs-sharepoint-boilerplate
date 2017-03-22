@@ -8,7 +8,7 @@
 			After="<% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/pagelayouts15.css %>" runat="server"/>
 	</PublishingWebControls:EditModePanel>
 	<SharePointWebControls:FieldValue id="PageStylesField" FieldName="HeaderStyleDefinitions" runat="server"/>
-	<base href="/dev/angular1/Pages/AngularMain.aspx/	">
+	<base href="/dev/angular1/Pages/AngularMain.aspx/">
 	<!-- <base href="/dev/angular1/"> -->
 <link rel="stylesheet" type="text/css" href="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/css/main.css%>"/>">
 	<style>
@@ -69,17 +69,12 @@
 	    }
 			</style>
 			<script>
-				// $.material.init();
-
 				function WebForm_OnSubmit() {
 					return false;
 				}
-				// $(document).ready(function() {
-				// 	$('form').unbind('submit');
-				// })
-
 			</script>
+
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/scripts/vendor.bundle.js%>" />"></script>
 			<script type="text/javascript" src="<asp:Literal runat="server" Text="<%$SPUrl:~site/SiteAssets/scripts/main.bundle.js%>" />"></script>
-
+			<!-- <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script> -->
 </asp:Content>
