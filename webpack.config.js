@@ -12,7 +12,7 @@ module.exports = function makeWebpackConfig() {
   var config = {};
 
   config.entry = {
-    vendor: ['babel-polyfill','whatwg-fetch', 'lodash'],
+    // vendor: ['babel-polyfill','whatwg-fetch', 'lodash'],
     main: './src/main.js'
   };
 

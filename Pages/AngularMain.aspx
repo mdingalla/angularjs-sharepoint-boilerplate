@@ -59,9 +59,10 @@
 <script src="/_layouts/15/sp.RequestExecutor.js"></script>
 
 <div  ng-app="myApp" lang="eng">
-<div class="view-animate-container">
-	 <ui-view></ui-view>
- </div>
+	<div class="view-animate-container">
+		 <ui-view></ui-view>
+	</div>
+</div>
 	    <style type="text/css">
 	    .form-invalid
 	    {

@@ -13,8 +13,10 @@
          <tr ng-repeat="item in sample.items">
            <td>{{item.Title}}</td>
            <td>
-             <button type="button" class="btn-success" ng-click="sample.openModal(item)">Edit</button>
-              <button type="button" class="btn-danger" ng-click="sample.deleteItem(item.Id)">Delete</button>
+             <button type="button" class="btn-success" ng-click="sample.openModal(item)">
+               Edit</button>
+              <button type="button" class="btn-danger" ng-click="sample.deleteItem(item.Id)">
+                Delete</button>
            </td>
          </tr>
        </tbody>

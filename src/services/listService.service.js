@@ -10,9 +10,8 @@ pnp.setup({
 if (!window.location.origin) {
       window.location.origin = window.location.protocol + "//"   +
       window.location.hostname + (window.location.port ? ':' + window.location.port : '');
-    }
+}
 var listServiceWeb = new pnp.Web(window.location.origin  + _spPageContextInfo.webServerRelativeUrl);
-
 
 class listService {
   constructor($q){
@@ -63,9 +62,18 @@ class listService {
         deferred.resolve(response);
       });
 
-
       return deferred.promise;
+  }
 
+
+  prepList(){
+    let deferred = this.$q.defer();
+    listServiceWeb.lists.add('SampleList','',100,false).then(function(result) {
+        deferred.resolve(true);
+    }).catch(function(err) {
+        deferred.resolve(false);
+    });
+    return deferred.promise;
   }
 
 }

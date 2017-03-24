@@ -5,10 +5,15 @@ export default class SampleController {
     this.mymodal = $uibModal;
     this.listService = listService;
     this.items =[];
-    this.refresh();
 
-  //  this.openModal = this.openModal.bind(this);
+    this.listService.prepList().then((data)=>{
+      console.log(data);
+      this.refresh();
+    });
+
   }
+
+
 
   refresh()
   {
@@ -23,7 +28,6 @@ export default class SampleController {
         ariaLabelledBy: 'modal-title',
         ariaDescribedBy: 'modal-body',
         template:samplemodal,
-        // templateUrl:'samplemodal.html',
         controller: 'SampleModalController',
         controllerAs: '$ctrl',
         size: 'md',
@@ -31,7 +35,7 @@ export default class SampleController {
           item: function () {
             return item;
           }
-          }
+        }
       });
 
       modalInstance.result.then(function(selectedItem) {
@@ -39,9 +43,7 @@ export default class SampleController {
         self.listService.saveOrUpdate(selectedItem).then((data)=>{
           self.refresh();
         });
-        // $ctrl.selected = selectedItem;
       }, function () {
-        // $log.info('Modal dismissed at: ' + new Date());
       });
   }
 
@@ -52,7 +54,6 @@ export default class SampleController {
       self.refresh();
     });
   }
-
 
 }
 

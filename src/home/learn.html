@@ -2,13 +2,444 @@
   <h1 class="page-header">Learn</h1>
 
   <div class="section-row">
-    <h2 class="page-header">Prerequisite</h2>
+    <h3 class="page-header">Prerequisite</h3>
     <div class="section-content">
-      <ul>
+      <ul>You should have:
         <li>Moderate knowledge/skills on Javascript, ES6 , HTML and CSS.</li>
-        <li>SharePoint knowledge on how list, document and sites work. </li>
+        <li>SharePoint knowledge on how site, list, document and pages work. </li>
         <li>Basic Model-View-Controller (MVC) Concept</li>
       </ul>
+
+      <ul>Your computer should have:
+        <li><b>NodeJS</b></li>
+        <li><b>npm</b></li>
+        <li>Your favorite text editor. I use atom.</li>
+        <li>Access to a SharePoint environment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">Download</h3>
+    <div class="section-content">
+      <p>You can download a copy or clone at <a href="https://github.com/mdingalla/angularjs-sharepoint-boilerplate">
+        https://github.com/mdingalla/angularjs-sharepoint-boilerplate</a></p>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">File / Folder Structure</h3>
+    <div class="section-content">
+      <ul>
+        <li>Pages/AngularMain.aspx - the SharePoint page that contains the AngularJS application.</li>
+        <li>src/ - this folder contains the AngularJS  codes that we used in our application.</li>
+      </ul>
+
+      <ul>
+        <li>package.json - npm package file contains all the dependencies we used.</li>
+        <li>webpack.config.js - webpack module configuration for bundling and compiling AngularJS codes.
+        </li>
+        <li>gulpfile.js - task runner for deploying the files into SharePoint.</li>
+      </ul>
+
+      <ul>
+        <li><label class="badge">src/main.js</label> - main entry file of the application.</li>
+        <li>src/app.config.js - contains the configuration for the application.</li>
+        <li><label class="badge">src/home</label> - default module for the application</li>
+        <li><label class="badge">src/services</label> - contains the AngularJS Services used in our application</li>
+        <li><label class="badge">src/modals</label> - contains the AngularJS pop up  </li>
+        <li><label class="badge">src/sample</label> - contains the CRUD demo application</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="page-header">Let's start</h2>
+  <div class="section-row">
+    <div>
+      <ol>
+        <li>Open a command prompt in the project directory.</li>
+        <li>Type npm install on the cmd. This will install the needed files defined in the package.json.</li>
+        <li>Open src/config.json. Fill up the details like username, pw and the url of SharePoint web.
+        Please ask the administrator for a development account for security purpose</li>
+        <li>On command prompt, type npm run build. This will run the webpack system using the webpack.config.js.
+        What it does is, it compiles all your js codes in the src file, combines all of them in a single file and then make a copy
+      of the compressed file in the dist/ folder.</li>
+        <li>Still on command prompt, type gulp uploadall. It will upload all the files in our dist/ folder into the SharePoint web
+        we provided on the config.json file.</li>
+      </ol>
+    </div>
+  </div>
+
+
+  <h2 class="page-header">The code...</h2>
+  <div class="section-row">
+    <h3 class="page-header">Pages/AngularMain.aspx</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            61: &lt;div  ng-app=&quot;myApp&quot; lang=&quot;eng&quot;&gt;
+            62: &Tab;&lt;div class=&quot;view-animate-container&quot;&gt;
+            63: &Tab;&Tab; &lt;ui-view&gt;&lt;/ui-view&gt;
+            64: &Tab;&lt;/div&gt;
+            65: &lt;/div&gt;
+          </code>
+        </pre>
+        <p>This page serve as the main layout for the AngularJS app. We use the ng-app directive here to
+        tell AngularJS that we are starting the module 'myApp'. We also used the ui-view here to render the views.</p>
+      </div>
+
+      <div>
+        <pre>
+          <code>
+            13: &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;asp:Literal runat=&quot;server&quot; Text=&quot;&lt;%$SPUrl:~site/SiteAssets/css/main.css%&gt;&quot;/&gt;&quot;&gt;
+          </code>
+          <code>
+            78: &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;asp:Literal runat=&quot;server&quot; Text=&quot;&lt;%$SPUrl:~site/SiteAssets/scripts/vendor.bundle.js%&gt;&quot; /&gt;&quot;&gt;&lt;/script&gt;
+            79: &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;asp:Literal runat=&quot;server&quot; Text=&quot;&lt;%$SPUrl:~site/SiteAssets/scripts/main.bundle.js%&gt;&quot; /&gt;&quot;&gt;&lt;/script&gt;
+          </code>
+        </pre>
+        <p>The next important thing for this page are the script and style references.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">src/main.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            01: import './main.css';
+            02: import angular from 'angular';
+            03: import uirouter from 'angular-ui-router';
+            04:
+            05: import routing from './app.config';
+            06:
+            07: import 'bootstrap/dist/css/bootstrap.css';
+            08: import home from './home';
+            09: import sample from './sample';
+            10: import modals from './modals';
+            11:
+            12: angular.module('myApp', [uirouter,home,sample,modals])
+            13: .config(routing);
+          </code>
+        </pre>
+        <p>Lines 1-10 are just import(es6) statements telling  what we need in our application.
+          We referenced angular, as this is the core framework. We also have angular-ui-router, to
+          control the navigation of our application. </p>
+        <p>Line 12 - initialized our AngularJS app. myApp is the name of our module, should
+          be the same with the ng-app directive set with the page. These are just names
+          ,feel free to set your own. The [uirouter,home,sample,modals] inject tells AngularJS that
+          we are going to use them in our application. </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">src/app.config.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            1: routing.$inject = ['$urlRouterProvider', '$locationProvider'];
+            2:
+            3: export default function routing($urlRouterProvider, $locationProvider) {
+            4:   $locationProvider.html5Mode({
+            5:   enabled: true,
+            6:   requireBase: true
+            7: });
+            8:   $urlRouterProvider.otherwise('/home');
+            9: }
+          </code>
+        </pre>
+        <p>For our configuration, we set how the navigation will behave. These are default configuration.</p>
+        <p>Line 8 tells the application to navigate to /home. So let's go.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row" >
+    <h3 class="page-header">src/home/index.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            01: import './home.css';
+            02:
+            03: import angular from 'angular';
+            04: import uirouter from 'angular-ui-router';
+            05:
+            06: import routing from './routes';
+            07: import HomeController from './home.controller';
+            08: import LearnController from './learn.controller';
+            09:
+            10: export default angular.module('app.home', [uirouter])
+            11:   .config(routing)
+            12:   .controller('HomeController', HomeController)
+            13:   .controller('LearnController',LearnController)
+            14:   .name;
+          </code>
+        </pre>
+        <p>The index.js for home contains the module for loading up the
+          routes and controllers. This page is under the LearnController.  </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row" id="src-home-route-js">
+    <h3 class="page-header">src/home/routes.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            01: routes.$inject = ['$stateProvider'];
+            02:
+            03: export default function routes($stateProvider) {
+            04:   $stateProvider
+            05:     .state('home', {
+            06:       url: '/home',
+            07:       template: require('./home.html'),
+            08:       controller: 'HomeController',
+            09:       controllerAs: 'home'
+            10:     })
+            11:     .state('learn', {
+            12:       url: '/learn',
+            13:       template: require('./learn.html'),
+            14:       controller: 'LearnController',
+            15:       controllerAs: 'learn'
+            16:     });
+            17: }
+          </code>
+        </pre>
+        <p>The src/home/routes.js contains the navigation setup for our application. It tells that whenever we go
+        to path '/learn', AngularJS will use the LearnController (C) and the corresponding view (V) which is at learn.html
+        If you go to the LearnController, it is an empty controller as it most of the contents of this is at learn.html.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="page-header">The Demo</h2>
+  <div class="section-row">
+    <h3 class="page-header">src/sample/index.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            01: import angular from 'angular';
+            02: import uirouter from 'angular-ui-router';
+            03: import uiBootstrap from 'angular-ui-bootstrap';
+            04:
+            05: import routing from './routes';
+            06: import SampleController from './sample.controller';
+            07:
+            08: import listService from './../services/listService.service';
+            09:
+            10: export default angular.module('app.sample', [uirouter,listService,uiBootstrap])
+            11:   .config(routing)
+            12:   .controller('SampleController', SampleController)
+            13:   .name;
+          </code>
+        </pre>
+        <p>The entry file for the demo module is at src/sample/index.js. It loads up the route.js which is similar to the
+        navigation setup we have with src/home/routes.js. We also have the SampleController which hanles
+        how the the data and view will behave. </p>
+        <p>Line 3 we imported the angular-ui-bootstrap which we used to display the modal pop up.
+           At Line 8, we load up an AngularJS service, which is responsible for manipulating the data (M) we
+         have on SharePoint.  </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">src/services/listService.service.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            01: import * as pnp from 'sp-pnp-js';
+            02: import angular from 'angular';
+            03:
+            04: pnp.setup({
+            05:   headers: {
+            06:     Accept: 'application/json; odata=verbose',
+            07:   }
+            08: });
+            09:
+            10: if (!window.location.origin) {
+            11:       window.location.origin = window.location.protocol + "//"   +
+            12:       window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+            13: }
+            14: var listServiceWeb = new pnp.Web(window.location.origin  + _spPageContextInfo.webServerRelativeUrl);
+          </code>
+        </pre>
+        <p>Line 1, we import a SharePoint library from the community.
+           More info at <a target="_blank" href="https://github.com/SharePoint/PnP-JS-Core.">https://github.com/SharePoint/PnP-JS-Core.</a> Line 14 prepares pnp js to make calls on the
+         specified SharePoint location, in this case just the current location. You can have a separate service which
+       makes a call to our PettyCash or Travel Request. </p>
+
+      </div>
+
+      <div>
+        <pre>
+          <code>
+            16: class listService {
+            17:   constructor($q){
+            18:     'ngInject';
+            19:     this.$q = $q;
+            20:   }
+          </code>
+        </pre>
+        <p>listService class initialization. Since we are going to use the $q (promise service), we use the ngInject
+        so that AngularJS does the injection for us. </p>
+      </div>
+
+      <div>
+        <pre>
+          <code>
+            22:   getListItems(){
+            23:     let deferred = this.$q.defer();
+            24:
+            25:     listServiceWeb.lists.getByTitle('SampleList').items.get().then((response)=>{
+            26:       deferred.resolve(response);
+            27:     });
+            28:
+            29:     return deferred.promise;
+            30:   }
+          </code>
+        </pre>
+        <p>listService's getListItems method to get the items of the 'SampleList' in SharePoint. You can
+        see the list here <a target="_blank" href="https://iconnect.interplex.com/dev/angular1/Lists/SampleList/AllItems.aspx">
+          https://iconnect.interplex.com/dev/angular1/Lists/SampleList/AllItems.aspx</a>
+      </p>
+      </div>
+
+      <div>
+        <pre>
+          <code>
+            32:   saveOrUpdate(item){
+            33:     let deferred = this.$q.defer();
+            34:
+            35:     let data = {
+            36:       Title:item.Title
+            37:     };
+            38:
+            39:     if (item.Id)
+            40:     {
+            41:       listServiceWeb.lists.getByTitle('SampleList').items.getById(item.Id).update(data)
+            42:       .then((response)=>{
+            43:         deferred.resolve(response);
+            44:       });
+            45:     }
+            46:     else {
+            47:       listServiceWeb.lists.getByTitle('SampleList').items.add(data)
+            48:       .then((response)=>{
+            49:         deferred.resolve(response);
+            50:       });
+            51:     }
+            52:
+            53:     return deferred.promise;
+            54:   }
+          </code>
+        </pre>
+        <p>listService's saveOrUpdate method does the creation and modification of our list items.</p>
+      </div>
+
+      <div>
+        <pre>
+          <code>
+            56:   deleteItem(id)
+            57:   {
+            58:       let deferred = this.$q.defer();
+            59:
+            60:       listServiceWeb.lists.getByTitle('SampleList').items.getById(id).delete()
+            61:       .then((response)=>{
+            62:         deferred.resolve(response);
+            63:       });
+            64:
+            65:       return deferred.promise;
+            66:   }
+          </code>
+          </pre>
+          <p>listService's deleteItem method does the deletion our list items.</p>
+        </div>
+
+          <div>
+            <pre>
+          <code>
+            70: export default angular.module('services.list-service',[])
+            71:   .service('listService',listService)
+            72:   .name;
+          </code>
+        </pre>
+        <p>On this block, we registered the listService as part of AngularJS service. So that
+        we can call the service on any part of the application. So let us use this service to our
+      SampleController.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">src/sample/sample.controller.js</h3>
+    <div class="section-content">
+      <div>
+        <pre>
+          <code>
+            03: export default class SampleController {
+            04:   constructor(listService,$uibModal) {
+            05:     this.mymodal = $uibModal;
+            06:     this.listService = listService;
+            07:     this.items =[];
+            08:     this.refresh();
+            09:   }
+            10:
+            11:   refresh()
+            12:   {
+            13:     this.listService.getListItems().then((data)=>{
+            14:       this.items = data;
+            15:     });
+            16:   }
+          </code>
+        </pre>
+        <p>In the SampleController constructor,we inject the listService and the $uibModal, so
+        that we can use them inside our controller.</p>
+        <p>The refresh method runs and consumes the listService. The service stores the returned data into the 'items' property.</p>
+        <pre>
+          <code>
+            53: SampleController.$inject = ['listService','$uibModal'];
+          </code>
+        </pre>
+        <p>Here we manually inject the dependency as compared to using ngInject which we used
+           on listService. They are basically the same.
+        </p>
+
+        <pre>
+          <code>
+            43:   deleteItem(id)
+            44:   {
+            45:     var self = this;
+            46:     this.listService.deleteItem(id).then((data)=>{
+            47:       self.refresh();
+            48:     });
+          </code>
+        </pre>
+        <p>The deleteItem method consumes the listService's deleteItem method and calls the refresh method after
+        it successfully deletes the item from the SharePoint list.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <h3 class="page-header">src/sample/sample.html</h3>
+    <div class="section-content">
+      <pre>
+          <img src="../../SiteAssets/learn/sample.table.png" />
+      </pre>
+      <p>Line 12 - used ng-repeat to iterate through the items. Take note that the 'sample' variable
+      we used is the controllerAs we defined  <a href="#src-home-route-js">here</a>. </p>
+      <p>Line 16 - used ng-click to execute SampleControllnger's openModal method.</p>
     </div>
   </div>
 
